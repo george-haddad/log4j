@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="false">
+
+	<appender name="DBAPPENDER" class="george.log4j.dbappender.DatabaseAppender">
+		<param name="driver" value="com.mysql.jdbc.Driver" />
+		<param name="URL" value="jdbc:mysql://my.database:3306/logschema" />
+		<param name="user" value="george" />
+		<param name="password" value="george123" />
+	</appender>
+	
+	<category name="event" additivity="false">
+		<priority value="info" />
+		<appender-ref ref="DBAPPENDER" />
+	</category>
+
+	<root>
+		<priority value="debug" />
+	</root>
+</log4j:configuration>
